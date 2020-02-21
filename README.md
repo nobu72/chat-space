@@ -36,6 +36,6 @@
 |users_id|strings|null: fales, foreign_key: true|
 |groups_id|strings|null: fales, foreign_key: true|
 ### Association
-- belongs_to :groups
-- belongs_to :users
+- belongs_to :group
+- belongs_to :user
 
