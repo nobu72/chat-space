@@ -7,16 +7,15 @@
 |password|string|null: false|
 |username|string|null: false|
 ### Association
-- has_many :posts
+- has_many :comments
 - has_many :groups, through: :groups_users
 - has_many :groups_users
-
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |groupname|string|null: fales|
 ### Association
-- has_many :posts
+- has_many :comments
 - has_many :users, through: :group_users
 - has_many :group_users
 
@@ -29,7 +28,7 @@
 - belongs_to :group
 - belongs_to :user
 
-## pustsテーブル
+## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|strings|null: fales|
