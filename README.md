@@ -1,24 +1,39 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# chat-space DB設計
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false|
+|password|string|null: false|
+|username|string|null: false|
+### Association
+- has_many :posts
+- has_many :groups, through: :groups_users
 
-Things you may want to cover:
+## groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|groupname|string|null: fales|
+### Association
+- has_many :posts
+- has_many :users, through: :group_users
 
-* Ruby version
+## users_groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|users_id|strings|null: fales, foreign_key: true|
+|groups_id|strings|null: fales, foreign_key: true|
+### Association
+- belongs_to :groups
+- belongs_to :users
 
-* System dependencies
+## pustsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|strings|null: fales|
+|users_id|strings|null: fales, foreign_key: true|
+|groups_id|strings|null: fales, foreign_key: true|
+### Association
+- belongs_to :groups
+- belongs_to :users
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
