@@ -23,17 +23,18 @@
         color: #ffffff;
         }
       &__menu{
-          width:60px;
           height: 20px;
           display: flex;
           text-align: right;
           
-          .fa-edit{
-            margin-left:  5px;
+          .fa-cog{
+            margin-left: 5px;
             color: #ffffff;
             }
-          .fa-cog{
+            
+          .fa-edit{
             color: #ffffff;
+            margin-left: 5px;
             }
          } 
     }
