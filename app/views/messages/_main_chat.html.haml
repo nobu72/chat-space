@@ -7,14 +7,15 @@
         member:masa
     .mainchat__group__rightbox
       Edit
-  .mainchat__message--list
-    .mainchat__message--list__message
-      .mainchat__message--list__message__name
+  .mainchat__message__list
+    .mainchat__message__list__posts
+      %p.mainchat__message__list__posts__name
         masa
-        .mainchat__message--list__message__name__date
-          2019/11/20(wed)17:43:01
-      .mainchat__message--list__message__text
-        おはよう
+      %P.mainchat__message__list__posts__date
+        2019/11/20(wed)17:43:01
+    .mainchat__message__list__text
+      おはよう
+
   .mainchat__message--form
     %form.new_message
       .input-box
@@ -23,6 +24,3 @@
           = icon('fas','image')
           %input{type:"file",class:"input-box__image__file"}
       %input{type:"submit",class:"submit-btn"}
-
-
-  
