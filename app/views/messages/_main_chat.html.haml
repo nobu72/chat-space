@@ -1,0 +1,26 @@
+.mainchat
+  .mainchat__group
+    .mainchat__group__leftbox
+      .mainchat__group__leftbox__name
+        test
+      .mainchat__group__leftbox__member
+        member:masa
+    .mainchat__group__rightbox
+      Edit
+  .mainchat__message__list
+    .mainchat__message__list__posts
+      %p.mainchat__message__list__posts__name
+        masa
+      %P.mainchat__message__list__posts__date
+        2019/11/20(wed)17:43:01
+    .mainchat__message__list__text
+      おはよう
+
+  .mainchat__message--form
+    %form.new_message
+      .input-box
+        %input{type:"text",class:"input-box__text",placeholder:"type a message"}
+        %label{class:"input-box__image"}
+          = icon('fas','image')
+          %input{type:"file",class:"input-box__image__file"}
+      %input{type:"submit",class:"submit-btn"}
