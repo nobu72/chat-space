@@ -21,7 +21,7 @@
       &__name{
         font-size: 16px;
         color: #ffffff;
-        }
+      }
       &__menu{
           height: 20px;
           display: flex;
@@ -47,13 +47,17 @@
     &__list{
       height: 91px;
       width: 100%;
-      color: #ffffff;
+      a{
+        color: white;
+        text-decoration: none;
+      }
       &__name{
         height: 15px;
         margin-bottom: 5px;
         margin-left: 20px;
         font-size: 15px;  
         padding-top: 20px;
+      
       }
       &__message{
         height:11px;
@@ -61,6 +65,7 @@
         margin-bottom: 40px;
         margin-left: 20px;
         padding-top: 20px;
+       
       } 
     } 
   }
