@@ -54,12 +54,14 @@ $('#new_message').on('submit', function(e){
      .done(function(data){
        var html = buildHTML(data);
        $('.mainchat__message__list').append(html); 
-       $('.mainchat__message__list').animate({scrollTop: $('.mainchat__message__list')[0].scrollHeight}, 'fast');        
+       $('.mainchat__message__list').animate({scrollTop: $('.mainchat__message__list')[0].scrollHeight}, 'fast');
        $('form')[0].reset();
      })
      .fail(function(){
       alert('error');
-    });
-    return false;
+     })
+     .always(function() {
+      $('.submit-btn').prop('disabled', false);
+    })
   });
 });
