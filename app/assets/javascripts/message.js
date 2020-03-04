@@ -1,9 +1,10 @@
 $(function(){ 
+ 
     function buildHTML(message){
-      if ( message.image ) {
+      if (message.content && message.image) {
         var html =
          `
-            <div class="mainchat__message__list__posts">
+            <div class="mainchat__message__list__posts" data-message-id = ${message.id} >
               <div class="mainchat__message__list__posts__name">
                 ${message.user_name}
               </div>
@@ -19,10 +20,26 @@ $(function(){
             <img src=${message.image} >
           </div>`
         return html;
-      } else {
+        
+      } else if (message.image) {
         var html =
          `
-            <div class="mainchat__message__list__posts">
+            <div class="mainchat__message__list__posts" data-message-id = ${message.id} >
+              <div class="mainchat__message__list__posts__name">
+                ${message.user_name}
+              </div>
+              <div class="mainchat__message__list__posts__date">
+                ${message.created_at}
+              </div>
+            </div>
+            <img src=${message.image} >
+          </div>`
+        return html;
+        
+      } else if (message.content) {
+        var html =
+         `
+         <div class="mainchat__message__list__posts" data-message-id =${message.id} >
               <div class="mainchat__message__list__posts__name">
                 ${message.user_name}
               </div>
@@ -39,29 +56,55 @@ $(function(){
         return html;
       };
     }
-$('#new_message').on('submit', function(e){
-    e.preventDefault();
-    var formData = new FormData(this);
-    var url = $(this).attr('action')
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: formData,
-      dataType: 'json',
-      processData: false,
-      contentType: false
-    })
-     .done(function(data){
-       var html = buildHTML(data);
-       $('.mainchat__message__list').append(html); 
-       $('.mainchat__message__list').animate({scrollTop: $('.mainchat__message__list')[0].scrollHeight}, 'fast');
-       $('form')[0].reset();
-     })
-     .fail(function(){
-      alert('error');
-     })
-     .always(function() {
-      $('.submit-btn').prop('disabled', false);
-    })
-  });
+    $('#new_message').on('submit', function(e){
+        e.preventDefault();
+        var formData = new FormData(this);
+        var url = $(this).attr('action')
+        $.ajax({
+          url: url,
+          type: "POST",
+          data: formData,
+          dataType: 'json',
+          processData: false,
+          contentType: false
+        })
+        .done(function(data){
+          var html = buildHTML(data);
+          $('.mainchat__message__list').append(html); 
+          $('.mainchat__message__list').animate({scrollTop: $('.mainchat__message__list')[0].scrollHeight}, 'fast');
+          $('form')[0].reset();
+        })
+        .fail(function(){
+          alert('error');
+        })
+        .always(function() {
+          $('.submit-btn').prop('disabled', false);
+        })
+    });
+
+    var reloadMessages = function() {
+      var last_message_id = $('.mainchat__message__list__posts:last').data("message-id");
+      $.ajax({
+        url: "api/messages",
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        if (messages.length !== 0) {
+        var insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.mainchat__message__list').append(insertHTML);
+        $('.mainchat__message__list').animate({ scrollTop: $('.mainchat__message__list')[0].scrollHeight});
+      }
+      })
+      .fail(function() {
+        alert('error');
+      });
+    };
+    if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+      setInterval(reloadMessages, 7000);
+    }
 });
