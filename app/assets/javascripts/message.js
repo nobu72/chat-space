@@ -3,8 +3,7 @@ $(function(){
     function buildHTML(message){
       if (message.content && message.image) {
         var html =
-         `
-            <div class="mainchat__message__list__posts" data-message-id = ${message.id} >
+         `<div class="mainchat__message__list__posts" data-message-id = ${message.id} >
               <div class="mainchat__message__list__posts__name">
                 ${message.user_name}
               </div>
@@ -23,8 +22,7 @@ $(function(){
         
       } else if (message.image) {
         var html =
-         `
-            <div class="mainchat__message__list__posts" data-message-id = ${message.id} >
+         `<div class="mainchat__message__list__posts" data-message-id = ${message.id} >
               <div class="mainchat__message__list__posts__name">
                 ${message.user_name}
               </div>
@@ -38,8 +36,7 @@ $(function(){
         
       } else if (message.content) {
         var html =
-         `
-         <div class="mainchat__message__list__posts" data-message-id =${message.id} >
+         `<div class="mainchat__message__list__posts" data-message-id =${message.id} >
               <div class="mainchat__message__list__posts__name">
                 ${message.user_name}
               </div>
