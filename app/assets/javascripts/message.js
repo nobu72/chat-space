@@ -10,7 +10,7 @@ $(function(){
               <div class="mainchat__message__list__posts__date">
                 ${message.created_at}
               </div>
-            </div>
+      
             <div class="mainchat__message__list__text">
               <p class="mainchat__message__list__text__content">
                 ${message.content}
@@ -29,7 +29,6 @@ $(function(){
               <div class="mainchat__message__list__posts__date">
                 ${message.created_at}
               </div>
-            </div>
             <img src=${message.image} >
           </div>`
         return html;
