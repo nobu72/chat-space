@@ -2,55 +2,55 @@ $(function(){
  
     function buildHTML(message){
       if (message.content && message.image) {
-        // var html =
-        // `<div class="mainchat__message__list__posts" data-message-id = ${message.id} >
-        //       <div class="mainchat__message__list__posts__name">
-        //         ${message.user_name}
-        //       </div>
-        //       <div class="mainchat__message__list__posts__date">
-        //         ${message.created_at}
-        //       </div>
-        //     </div>
-        //     <div class="mainchat__message__list__text">
-        //       <p class="mainchat__message__list__text__content">
-        //         ${message.content}
-        //       </p>
-        //     </div>
-        //     <img src=${message.image} >
-        //   </div>`
-        // return html;
+        var html =
+        `<div class="mainchat__message__list__posts" data-message-id = ${message.id} >
+              <div class="mainchat__message__list__posts__name">
+                ${message.user_name}
+              </div>
+              <div class="mainchat__message__list__posts__date">
+                ${message.created_at}
+              </div>
+            </div>
+            <div class="mainchat__message__list__text">
+              <p class="mainchat__message__list__text__content">
+                ${message.content}
+              </p>
+            </div>
+            <img src=${message.image} >
+          </div>`
+        return html;
         
       } else if (message.image) {
-        // var html =
-        //  `<div class="mainchat__message__list__posts" data-message-id = ${message.id} >
-        //       <div class="mainchat__message__list__posts__name">
-        //         ${message.user_name}
-        //       </div>
-        //       <div class="mainchat__message__list__posts__date">
-        //         ${message.created_at}
-        //       </div>
-        //     </div>
-        //     <img src=${message.image} >
-        //   </div>`
-        // return html;
+        var html =
+         `<div class="mainchat__message__list__posts" data-message-id = ${message.id} >
+              <div class="mainchat__message__list__posts__name">
+                ${message.user_name}
+              </div>
+              <div class="mainchat__message__list__posts__date">
+                ${message.created_at}
+              </div>
+            </div>
+            <img src=${message.image} >
+          </div>`
+        return html;
         
       } else if (message.content) {
-        // var html =
-        //  `<div class="mainchat__message__list__posts" data-message-id =${message.id} >
-        //       <div class="mainchat__message__list__posts__name">
-        //         ${message.user_name}
-        //       </div>
-        //       <div class="mainchat__message__list__posts__date">
-        //         ${message.created_at}
-        //       </div>
-        //     </div>
-        //     <div class="mainchat__message__list__text">
-        //       <p class="mainchat__message__list__text__content">
-        //         ${message.content}
-        //       </p>
-        //     </div>
-        //   </div>`
-        // return html;
+        var html =
+         `<div class="mainchat__message__list__posts" data-message-id =${message.id} >
+              <div class="mainchat__message__list__posts__name">
+                ${message.user_name}
+              </div>
+              <div class="mainchat__message__list__posts__date">
+                ${message.created_at}
+              </div>
+            </div>
+            <div class="mainchat__message__list__text">
+              <p class="mainchat__message__list__text__content">
+                ${message.content}
+              </p>
+            </div>
+          </div>`
+        return html;
       };
     }
     $('#new_message').on('submit', function(e){
