@@ -6,7 +6,7 @@ $(function(){
         `<div class="mainchat__message__list__posts" data-message-id = ${message.id} >
               <div class="mainchat__message__list__posts__name">
                 ${message.user_name}
-              </div>
+            
               <div class="mainchat__message__list__posts__date">
                 ${message.created_at}
               </div>
@@ -14,7 +14,8 @@ $(function(){
               <div class="mainchat__message__list__text__content">
                 ${message.content}
               </div>
-              <img src=${message.image} >
+              <img class="image" src=${message.image} >
+              </div>
             </div>
         </div>`
         return html;
@@ -28,7 +29,7 @@ $(function(){
               ${message.created_at}
             </div>
             <div class="mainchat__message__list__posts__text">
-              <img src=${message.image} >
+              <img class="image"src=${message.image} >
             </div>
          </div>
       </div>`
