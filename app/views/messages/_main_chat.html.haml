@@ -4,6 +4,7 @@
       .mainchat__group__leftbox__name
         = @group.name
       .mainchat__group__leftbox__member
+        Member:
         - @group.users.each do |user|
           = user.name
       

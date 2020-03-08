@@ -121,8 +121,10 @@
       padding-top: 35px;
       padding-left: 40px;
       display: flex;
+      
       &__name{
         padding-bottom: 16px;
+        display: inline-block; 
         
       }
       &__date{
@@ -130,13 +132,22 @@
           padding-left: auto;
           color: #999999;
           margin-left: 10px;
+          display: inline-block; 
       }
-    }
+    
     &__text{
         font-size: 14px;
-        padding-bottom: 46px;
         padding-left: 40px;
+        padding-block-end: 20px;
+        padding-top: 20px;
     }
+    .image{
+      object-fit: cover;
+      padding-top: 40px;
+      height: 200px;
+      width:400px;
+    }
+  }
 }
 
 
